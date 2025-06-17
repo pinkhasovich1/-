@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>янтарка без фильтрации</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+    <style>
+        /* Стили для нашей страницы и 3D-просмотрщика */
+        body {
+            margin: 0;
+            overflow: hidden; /* Скрываем полосы прокрутки, так как модель будет занимать весь экран */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Минимальная высота - весь экран */
+            background-color: #f0f0f0; /* Легкий серый фон */
+            font-family: sans-serif; /* Простой шрифт */
+            color: #333;
+        }
+        model-viewer {
+            width: 100%; /* Ширина на весь экран */
+            height: 100vh; /* Высота на весь экран */
+            display: block; /* Важно для корректного отображения */
+            --poster-color: #cccccc; /* Цвет фона, пока модель загружается */
+            border: none; /* Убираем рамку по умолчанию */
+        }
+        .info-text {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10; /* Убедимся, что текст поверх модели */
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="info-text">
+        Поворачивайте: тяните одним пальцем.<br>
+        Масштабируйте: сводите/разводите два пальца.<br>
+        Панорамирование: тяните двумя пальцами.
+    </div>
+
+    <model-viewer
+        src="Полная модель.glb"  alt="Полная модель"
+        camera-controls           touch-action="pan-y"      auto-rotate               auto-rotate-delay="1000"  rotation-per-second="0.5rad" shadow-intensity="1"      environment-image="neutral" exposure="1"              loading="eager"           ar                        ar-modes="webxr scene-viewer quick-look" >
+    </model-viewer>
+</body>
+</html>
